@@ -265,13 +265,21 @@ In conclusion, the future scope of the Kidney Stone Detection project involves a
 
 
 Project management:
+
 Implementation status report:
+
 In this phase 1, we have achieved building 2 models and got good accuracy of the models but not as expected. We have used resnet50 and CNN model to build good accurate models, but the dataset is comprising of all images and the run time is too long. Here we used limited resources and inputs to get the model running and generate accuracy.
+
 Work completed:
+
 Name	Description 	Responsibility 	Contribution 
+
 Bibek Lamsal           	Worked on CNN model and improving the performance	Improving the model performance with better accuracy	25%
+
 Praharsha Mutyala	Worked on resnet50 model and random forest model	Accuracy of the model to be improved with full dataset	25%
+
 Vignesh Pasula        	Worked on EDA and analysis and built SVM model	Exploratory Data Analysis tasks and the analysis of each filter used in this project	25%
+
 Hemanth Maddila   	Worked on report and analysis	Report analysis	25%
 
 
