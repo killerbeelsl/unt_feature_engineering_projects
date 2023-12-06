@@ -1,17 +1,27 @@
 Project Title: Kidney stone detection on CT images
+
 Team Members Name: 
 1.	Bibek Lamsal           (11711213)
 2.	Praharsha Mutyala (11712768) 
 3.	Vignesh Pasula        (11603369) 
 4.	Hemanth Maddila  (11727971)
+
+
 Goals and Objectives:
-The primary goal of this feature engineering project on kidney stone detection using CT scan images is to enhance the accuracy and reliability of detection while minimizing false positives. Through a comprehensive approach, the project aims to identify and engineer relevant features in CT scans, considering factors such as noise reduction, normalization, and resizing during data preprocessing. The focus is on implementing effective feature extraction techniques to capture patterns, textures, and shapes indicative of kidney stones. Dimensionality reduction and feature selection will be explored to streamline the model's complexity and enhance interpretability. Integration of the engineered features into machine learning models, particularly convolutional neural networks (CNNs) or traditional classifiers, is a key objective. The project will prioritize thorough validation, optimization, and performance evaluation, using metrics like accuracy and sensitivity. Visualization and interpretability of the selected features will be emphasized to provide insights into the decision-making process. The entire feature engineering process will be meticulously documented, culminating in a comprehensive report summarizing methodologies, challenges, findings, and recommendations.
+
+The primary goal of this feature engineering project on kidney stone detection using CT scan images is to enhance the accuracy and reliability of detection while minimizing false positives. Through a comprehensive approach, the project aims to identify and engineer relevant features in CT scans, considering factors such as noise reduction, normalization, and resizing during data preprocessing. The focus is on implementing effective feature extraction techniques to capture patterns, textures, and shapes indicative of kidney stones. Dimensionality reduction and feature selection will be explored to streamline the model's complexity and enhance interpretability. Integration of the engineered features into machine learning models, particularly convolutional neural networks (CNNs) or traditional classifiers, is a key objective. 
+
+The project will prioritize thorough validation, optimization, and performance evaluation, using metrics like accuracy and sensitivity. Visualization and interpretability of the selected features will be emphasized to provide insights into the decision-making process. The entire feature engineering process will be meticulously documented, culminating in a comprehensive report summarizing methodologies, challenges, findings, and recommendations.
+
+
 Motivation:
+
 Kidney stones pose a significant health concern globally, necessitating accurate and efficient diagnostic tools for timely intervention. Traditional methods of kidney stone detection in CT scans often face challenges such as false positives and limited interpretability. This project is motivated by the urgent need to enhance the accuracy of detection while minimizing erroneous diagnoses, ultimately improving patient outcomes. By delving into feature engineering, we aim to unlock the potential of advanced image analysis techniques, leveraging insights from medical imaging and machine learning. The project's significance lies in its potential to contribute to a more robust and interpretable kidney stone detection system, providing healthcare professionals with a reliable tool for early and precise identification. Addressing these challenges is not only pivotal for patient well-being but also aligns with the broader goal of advancing medical imaging technologies for more effective clinical practices.
 Significance:
 The significance of the feature engineering project on kidney stone detection using CT scan images is multi-faceted and holds profound implications for both medical diagnostics and patient care. Firstly, improved accuracy in identifying kidney stones is crucial for timely and precise medical interventions. The reduction of false positives ensures that patients receive appropriate treatment without unnecessary interventions, minimizing stress and potential health risks. Additionally, a more accurate detection system contributes to enhanced resource allocation within healthcare facilities, optimizing workflow and reducing the burden on medical professionals. The project's exploration of advanced image analysis techniques and feature engineering not only addresses current limitations in kidney stone detection but also sets the stage for the development of more sophisticated diagnostic tools. This endeavor aligns with broader efforts in the field of medical imaging, where technological advancements play a pivotal role in advancing healthcare practices. Ultimately, the project's significance lies in its potential to significantly improve diagnostic accuracy, leading to better patient outcomes and contributing to the ongoing evolution of medical imaging technologies.
 
 Objectives:
+
 1. Feature Identification: Conduct a comprehensive literature review and collaborate with domain experts to identify key features in CT scan images indicative of kidney stones.
 2. Data Preprocessing: Implement preprocessing steps, including noise reduction, normalization, and resizing, to ensure the data is prepared optimally for feature extraction.
 3. Feature Extraction Techniques: Explore and implement advanced feature extraction techniques, such as texture analysis, shape analysis, and intensity-based features, to capture relevant patterns in CT scans.
@@ -27,8 +37,11 @@ Objectives:
 
 
 Features :
+
 Enhancing kidney stone detection from CT scan images involves extracting diverse features to capture patterns indicative of stone presence. Intensity-based features, like mean intensity and distribution metrics, offer insights into brightness and contrast. Texture-based metrics, including Haralick analysis and GLCM, discern finer details. Shape-based features focus on geometrical attributes, aiding discrimination between stones and normal structures. Frequency-based features from Fourier and Wavelet Transforms explore pixel intensity variations. Gradient-based features aid in edge detection. Statistical metrics provide a comprehensive profile. LBP captures local patterns, and spatial features explore relationships and geometric properties. Zernike moments and fractal dimension compactly represent shape and complexity. Integrating these features into a machine learning framework promises heightened accuracy in kidney stone detection, advancing medical imaging diagnostics.
+
 Related work:
+
 1. Automated Kidney Stone Detection in Non-Contrast Computed Tomography Images: This paper presents an automated approach for kidney stone detection in non-contrast CT images. The authors utilize image processing techniques to extract relevant features and employ machine learning algorithms for classification.
 2. Automatic Detection of Kidney Stone in Computed Tomography Urography: Focused on CT urography, this work introduces an automatic system for kidney stone detection. The study incorporates advanced image processing methods to identify and classify kidney stones, contributing to improved diagnostic capabilities.
 3. Automated Detection of Kidney Stones in CT Images using Shape and Intensity Features: The paper explores the use of both shape and intensity features for automated kidney stone detection in CT images. The combination of these features enhances the accuracy of detection, providing a comprehensive analysis of stone characteristics.
@@ -37,12 +50,14 @@ Related work:
 
  
 Design of features:
+
 The feature design for the kidney stone detection project centers on extracting discriminative characteristics from CT scan images, distinguishing kidneys with stones from those without. The chosen features encompass diverse aspects of image content and structure. Intensity-based features, such as mean intensity and standard deviation, provide insights into overall brightness and contrast variations. Texture-based features, including Haralick textural features and Local Binary Pattern, capture intricate patterns within the images.
 Shape-based descriptors, such as contour features, area, and perimeter, quantify structural characteristics of kidney regions. Frequency-based features, derived from Fourier and Wavelet transforms, analyze frequency components and multi-scale information. Gradient-based features, employing Sobel and Laplacian filters, enhance edges and highlight structural boundaries.
 Statistical metrics like skewness, kurtosis, and entropy describe the distribution and randomness of pixel values. Spatial features, including Zernike moments and fractal dimension, emphasize spatial distribution and structural complexity. This comprehensive feature set aims to create a nuanced representation of kidney structures, facilitating the development of a robust machine learning model for accurate kidney stone detection. The integration of these features ensures sensitivity to variations in intensity, texture, and shape, laying the foundation for a reliable and effective kidney stone detection system from CT scan images.
 Analysis:
 
 Exploratory Data Analysis:
+
 In this current project, we are using 625 images with kidney stones and 828 images with normal kidneys. Labels 0 and 1 are  given for with and without stones. The code generates pairwise image comparisons by randomly selecting and displaying two grayscale images from the training set. Each subplot exhibits images with corresponding labels, facilitating a qualitative assessment of visual features associated with kidney stones and normal kidneys. This approach aids in understanding the distinguishability of visual cues, contributing valuable insights for feature engineering and model interpretability. The diversity in visual characteristics observed in these comparisons informs the image classification pipeline, enhancing the exploration of patterns indicative of kidney stones.
                               ![image](https://github.com/killerbeelsl/unt_feature_engineering_projects/assets/44836378/fec9ecde-3b84-43b9-a329-6cf5e71abf56)
               
@@ -79,22 +94,33 @@ The initial visualization displays the pixel intensity distribution of a sample 
 
 
 Histograms of Original and Processed Images:
+
 The code proceeds to generate histograms for both original and processed (Gaussian filtered or blurred) images. The left subplot exhibits the histogram of the original image, while the right subplot presents the histogram of the processed image. The blue histograms represent original images, and the red histograms represent processed images. This side-by-side comparison facilitates the observation of changes in pixel intensity distribution due to the applied filters.
+
 Analysis of Gaussian Filtering:
+
 For each of the three selected images, Gaussian filtering is applied. The resulting histograms illustrate the impact on pixel intensity distribution. Gaussian filtering tends to smooth the image, reducing high-frequency noise. The histograms reveal potential shifts in intensity values, reflecting the filtering effect. The comparative visualizations assist in evaluating the filtering's influence on pixel intensity.
  ![image](https://github.com/killerbeelsl/unt_feature_engineering_projects/assets/44836378/437db018-294d-4312-9266-314061b1b303)
 
 Fig 1.8. Gaussian filtering
+
 Analysis of Blurring:
+
 Similarly, blurring is applied to the selected images, and histograms are generated for comparison. Blurring, a simpler form of image smoothing, aims to reduce fine details. The histograms showcase alterations in intensity distribution post-blurring. Comparing original and blurred histograms aids in assessing the blurring's impact on pixel intensity characteristics.
  ![image](https://github.com/killerbeelsl/unt_feature_engineering_projects/assets/44836378/0021cf3f-3459-4331-9b80-0513bffc3c7d)
 
 Fig. 1.9. Blurring filtering 
 
 Implementation:
+
+
 Resnet50 model:
+
 Resnet technique was used to train the model. Google drive was mounted into the workspace to allow access of dataset stored in Google drive. Preprocessing was done by ImageDataGenerator and pixel values are normalized from 0 to 1 with rescaling. Loaded the training images and testing images from the kidney stones dataset. A pretrained ResNet50 model was loaded from keras, and the images are inputted into 224,224,3 and is freezed to further avoid any changes during the training process. A new model is created with a global average pooling layer and for binary classification a dense output layer with a sigmoid activation function . Compiled and trained the new model with batch size of 73 with 10 epochs and saved it. To verify the performance of the trained model the data of test images is loaded and ImageDataGenerator for test data is used to preprocess the data. The trained model is then evaluated with test data. The accuracy and loss of the model are printed.
+
+
 Analysis of the Kidney Stones Detection Model:
+
 1. Data Preprocessing: The code employs the `ImageDataGenerator` from TensorFlow to preprocess and augment training images. The generator is configured to rescale pixel values to the range [0, 1]. The `flow_from_directory` function is used to load training images from the specified directory, with a target size of (224, 224) pixels.
 2. Transfer Learning with ResNet50: The pre trained ResNet50 model which is  obtained from the `keras.applications` module, is loaded. This architecture is known for its deep structure and excellent performance on image-related tasks. All layers of the ResNet50 base model are frozen to retain pre-trained weights during subsequent training.
 3. Model Architecture: A new model is constructed by adding a Global Average Pooling layer and a Dense layer with a sigmoid activation for binary classification on top of the ResNet50 base. The resulting model is compiled with the Adam optimizer and binary crossentropy loss, suitable for binary classification tasks.
