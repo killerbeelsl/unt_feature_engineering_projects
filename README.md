@@ -123,38 +123,165 @@ CNN model:
                  
                 
 
-Expected Output: The model is designed for binary classification tasks, possibly distinguishing between kidney stones (Class 1) and normal cases (Class 0). Training on appropriate image datasets, the model should learn to extract features indicative of the presence or absence of kidney stones.
-Here we achieved, test accuracy of 0.765 and test loss of 0.512 which depicts the model is good.
+[Phase-2]
 
-                   
+Support Vector Machine:
+ 
+
+Output:
+ 
+
+Interpretation:
+
+Let's interpret the results of the above SVM model:
+Accuracy (Overall Performance): The overall accuracy of the model is approximately 91.41%, which is a good indication of how well the model is performing across both classes (normal and kidney stone).
+
+Precision:
+Precision for Class 0 (Normal): 87% Out of all instances predicted as normal, 87% are truly normal. The remaining 13% are false positives (instances predicted as normal but are actually kidney stones).
+Precision for Class 1 (Kidney Stone): 99% Out of all instances predicted as kidney stones, 99% are truly kidney stones. The remaining 1% are false positives (instances predicted as kidney stones but are actually normal).
+
+Recall:
+Recall for Class 0 (Normal): 99% Out of all actual normal instances, the model correctly identifies 99% of them. Only 1% of normal instances are missed (false negatives).
+Recall for Class 1 (Kidney Stone): 81% Out of all actual kidney stone instances, the model correctly identifies 81% of them. However, 19% of kidney stone instances are missed (false negatives).
+
+F1-Score:
+F1-Score for Class 0 (Normal): 93% The harmonic mean of precision and recall for normal instances.
+F1-Score for Class 1 (Kidney Stone): 89% The harmonic mean of precision and recall for kidney stone instances.
+Confusion Matrix:
+   [[165   1]
+    [ 24 101]]
+    
+True Negatives (TN): [165] Instances correctly predicted as normal.
+False Positives (FP): [1] Instances predicted as kidney stones but are actually normal.
+False Negatives (FN): [24] Instances predicted as normal but are actually kidney stones.
+True Positives (TP): [101] Instances correctly predicted as kidney stones.
 
 
+Analysis for SVM model:
 
+The model performs very well in correctly identifying normal cases (high precision and recall). For kidney stones, the precision is very high (few false positives), but the recall is slightly lower (some false negatives). This suggests that while the model is very accurate when predicting kidney stones, it might miss a few cases. These results are promising, and further fine-tuning or exploration of different algorithms might help improve performance further.
 
+Random Forest Classifier:
+ 
+Output :
+ 
+Interpretation :
 
+The Random Forest model results obtained are as follows:
+Accuracy: [84.88%] The overall accuracy of the model on the test set.
+
+Precision : 
+Precision for Class 0 (Normal): [80%] Out of all instances predicted as normal, 80% are truly normal. The remaining 20% are false positives (instances predicted as normal but are actually kidney stones).
+Precision for Class 1 (Kidney Stone): [96%] Out of all instances predicted as kidney stones, 96% are truly kidney stones. The remaining 4% are false positives (instances predicted as kidney stones but are actually normal).
+
+Recall :
+Recall for Class 0 (Normal): [98%] Out of all actual normal instances, the model correctly identifies 98% of them. Only 2% of normal instances are missed (false negatives).
+Recall for Class 1 (Kidney Stone): [68%] Out of all actual kidney stone instances, the model correctly identifies 68% of them. However, 32% of kidney stone instances are missed (false negatives).
+
+F1-Score :
+
+F1-Score for Class 0 (Normal): [88%] The harmonic mean of precision and recall for normal instances.
+F1-Score for Class 1 (Kidney Stone): [79%] The harmonic mean of precision and recall for kidney stone instances.
+
+Confusion Matrix:
+  [[162   4]
+   [ 40  85]]
+
+   
+True Negatives (TN): [162] Instances correctly predicted as normal.
+False Positives (FP): [4] Instances predicted as kidney stones but are actually normal.
+False Negatives (FN): [40] Instances predicted as normal but are actually kidney stones.
+True Positives (TP): [85] Instances correctly predicted as kidney stones.
+
+Analysis for Random Forest Classifier model:
+
+The model has a high accuracy, but there is a trade-off between precision and recall, especially for kidney stone cases. Precision for kidney stones is high, indicating that when the model predicts kidney stones, it's often correct. However, recall for kidney stones is lower, indicating that the model may miss some cases of kidney stones. Consider the specific requirements of your application; if false positives are more critical, the model's performance might be acceptable.
+
+Model Evaluation:
+
+The Support Vector Machine (SVM) model achieved an impressive accuracy of 91.41%. It demonstrated a high precision of 99% for predicting kidney stones, indicating that when the model labeled an instance as a kidney stone, it was correct 99% of the time. However, the recall for kidney stones was 81%, suggesting that the model missed some instances of kidney stones in the dataset. The F1-score, a harmonic mean of precision and recall, was 89%, striking a balance between the two metrics.
+On the other hand, the Random Forest model showed an accuracy of 84.88%. It exhibited a high precision of 96% for kidney stones, comparable to the SVM model. However, the recall for kidney stones was lower at 68%, indicating a higher number of false negatives. The F1-score for kidney stones was 79%, reflecting the trade-off between precision and recall.
 
 Analysis:
- 
-The provided code is designed to assess the performance of a pre-trained Convolutional Neural Network (CNN) model in the context of kidney stone detection. The test data is loaded using the `flow_from_directory` method, which not only organizes the data but also resizes images to a predefined target size for consistency. The `ImageDataGenerator` is applied for data normalization, ensuring uniform pixel values across the dataset. The subsequent step involves evaluating the pre-trained CNN model on the loaded test data using the `evaluate` method. This process yields key metrics such as test accuracy and test loss. The printed results provide insights into how well the model generalizes to unseen data.
-In terms of expected outcomes, a high-test accuracy suggests that the model performs well in correctly classifying kidney stone images. A low-test loss indicates that the predictions align closely with the actual class labels. These metrics are essential for gauging the model's effectiveness in real-world scenarios.
-Monitoring these metrics over time is crucial for maintaining the model's reliability and detecting any potential issues, such as overfitting or underfitting, which might affect its performance on new, unseen data. Overall, this evaluation step is fundamental for ensuring the robustness and applicability of the model in practical settings. 
+
+Comparing the two models, the SVM model demonstrated superior performance in terms of overall accuracy and precision for kidney stones. Its ability to correctly classify normal cases and accurately identify kidney stones contributed to its high accuracy. However, the Random Forest model, while achieving a slightly lower accuracy, showed competitive precision for kidney stones.
+
+The choice between these models depends on the specific goals and considerations of the application. If the emphasis is on minimizing false positives (misclassifying normal cases as kidney stones), the SVM model may be preferred due to its higher precision. On the other hand, if the goal is to reduce false negatives (identifying all instances of kidney stones), the Random Forest model might be considered despite the lower recall.
+It's important to note that the performance metrics and the choice of the "better" model depend on the specific context of the application and the consequences of false positives and false negatives. Additionally, further model tuning and exploration, as outlined in the future scope, could potentially enhance the performance of the models.  
+
+
+
+Future Scope:
+
+
+Model Tuning:
+Conduct a systematic exploration of hyperparameter tuning for both the Support Vector Machine (SVM) and Random Forest models. This involves optimizing parameters such as kernel choice, regularization strength, and tree depth to enhance the models' predictive performance.
+
+
+Deep Learning Approaches:
+Investigate the adoption of advanced deep learning models, such as Convolutional Neural Networks (CNNs). CNNs excel in image-related tasks, allowing for improved feature extraction and hierarchical learning. This exploration may lead to more nuanced representations of kidney stones in images.
+
+
+Additional Data:
+Augment the existing data set with a more extensive and diverse collection of medical images. A larger data set can enhance the models' ability to generalize across a broader range of cases, making them more robust and reliable in real-world scenarios.
+
+
+Ensemble Models:
+Implement ensemble learning techniques, such as stacking or bagging, to combine predictions from multiple models. Ensemble models often lead to improved performance by leveraging the strengths of different algorithms and mitigating their individual weaknesses.
+
+
+Explainability:
+Enhance the interpretability of the models by implementing techniques for explainable artificial intelligence (XAI). This includes methods like LIME (Local Interpretable Model-agnostic Explanations) or SHAP (Shapley Additive explanations) to provide insights into the features influencing model predictions. This interpretability is crucial, especially in medical applications where transparency is essential.
+
+
+Real-time Application:
+Transition the developed models into a real-time application for immediate clinical use. This involves integrating the model into a user-friendly interface, ensuring compatibility with medical imaging systems, and validating its performance in a real-time environment. A user-friendly application can facilitate quick and accurate diagnoses, leading to timely medical interventions.
+
+
+Continuous Evaluation and Validation:
+Establish a continuous evaluation and validation process for the models. Regularly update the models with new data and reevaluate their performance to ensure they remain effective over time. This process should include collaboration with medical professionals to validate the models against real-world cases.
+
+
+
+
+Cross-disciplinary Collaboration:
+Foster collaboration between data scientists, machine learning experts, and medical professionals. Engage in cross-disciplinary discussions to refine the models based on medical expertise and ensure that the developed solutions align with clinical requirements.
+Ethical Considerations:
+Pay attention to ethical considerations and data privacy concerns associated with medical data. Ensure that the models adhere to ethical standards, comply with regulations, and prioritize patient privacy.
+Patient Outcome Studies:
+Collaborate with healthcare institutions to conduct patient outcome studies. Evaluate the impact of the developed models on patient outcomes, diagnosis speed, and treatment decisions. This can provide valuable insights into the clinical utility of the models.
+
+
+
+
+Conclusion:
+In conclusion, the future scope of the Kidney Stone Detection project involves a comprehensive approach to refining existing models, exploring advanced techniques, and transitioning towards real-world applications. Continuous collaboration, model updates, and adherence to ethical standards are pivotal for the success and responsible deployment of the developed solutions in the medical domain.
+
+
+
+
+
+
+
+
 Project management:
 Implementation status report:
 In this phase 1, we have achieved building 2 models and got good accuracy of the models but not as expected. We have used resnet50 and CNN model to build good accurate models, but the dataset is comprising of all images and the run time is too long. Here we used limited resources and inputs to get the model running and generate accuracy.
 Work completed:
 Name	Description 	Responsibility 	Contribution 
-Bibek Lamsal           	Worked on CNN model	Improving the model performance with better accuracy	25%
-Praharsha Mutyala	Worked on resnet50 model	Accuracy of the model to be improved with full dataset	25%
-Vignesh Pasula        	Worked on EDA and analysis	Exploratory Data Analysis tasks and the analysis of each filter used in this project	25%
+Bibek Lamsal           	Worked on CNN model and improving the performance	Improving the model performance with better accuracy	25%
+Praharsha Mutyala	Worked on resnet50 model and random forest model	Accuracy of the model to be improved with full dataset	25%
+Vignesh Pasula        	Worked on EDA and analysis and built SVM model	Exploratory Data Analysis tasks and the analysis of each filter used in this project	25%
 Hemanth Maddila   	Worked on report and analysis	Report analysis	25%
 
-Work to be completed :
-Name	Description 	Responsibility 	Issues/concerns 
-Bibek Lamsal           	Re-work on CNN model and try to build svm model	Improving the model performance with better accuracy and working on svm model building	Images dataset is huge size and using as many as possible
-Praharsha Mutyala	Re-work on resnet50 model and try building randomforest model for better results	Accuracy of the model to be improved with full dataset and rework on it to achieve better accuracy	Improving the accuracy with more images
-Vignesh Pasula        	Try with various more filters and implement them	Exploratory Data Analysis tasks and the analysis of each filter used in this project and explore more filters to analysis in details	Research various papers for more preprocessing methods
-Hemanth Maddila   	Work on further analysis and final draft	Report analysis and making final draft	In detailed analysis for the further models
 
 
-References :
+
+
+
+
+
+
+
+
  
